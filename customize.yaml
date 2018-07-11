@@ -1,0 +1,35 @@
+light.yeelight_rgb_7811dc6ab618:
+  friendly_name: Beauty Lamp
+light.gateway_light_34ce00923e70:
+  friendly_name: Gateway Lamp
+light.yeelight_rgb_7811dc6a8170:
+  friendly_name: Bedside Lamp
+light.yeelight_rgb_7811dc6a8178:
+  friendly_name: Bedroom Lamp
+sensor.livingroom_temperature:
+  friendly_name: Temperatura
+sensor.livingroom_humidity:
+  friendly_name: Wilgotność
+sensor.balcony_temperature:
+  friendly_name: Temperatura
+sensor.balcony_humidity:
+  friendly_name: Wilgotność
+sensor.balcony_pressure:
+  friendly_name: Ciśnienie
+binary_sensor.water_leak_sensor_158d000211b290:
+  friendly_name: Water Leak Kitchen
+device_tracker.esp_b1447c:
+  hidden: true
+sensor.yr_symbol:
+  friendly_name: Pogoda
+weather.pogoda_warszawa:
+  friendly_name: Warszawa
+binary_sensor.water_leak_kitchen_capboard_158d00021508f3:
+  friendly_name: Szafka pod zlewazmywakiem
+binary_sensor.water_leak_bath_158d00021508f3:
+  friendly_name: Łazienka pod wanną
+binary_sensor.water_leak_bathroom_sink_158d0002130748:
+  friendly_name: Łazienka pod umywalką
+binary_sensor.water_leak_toilet_158d0002130478:
+  friendly_name: Toaleta
+

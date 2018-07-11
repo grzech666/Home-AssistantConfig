@@ -1,0 +1,244 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude_home
+  longitude: !secret longitude_home
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 109
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Warsaw
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+  extra_html_url:
+    - /local/lovelace.html
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  ssl_certificate: /home/homeassistant/dehydrated/certs/kotopies.duckdns.org/fullchain.pem
+  ssl_key: /home/homeassistant/dehydrated/certs/kotopies.duckdns.org/privkey.pem
+  base_url: !secret www_page
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+# Xiaomi gateway
+xiaomi_aqara:
+  discovery_retry: 5
+  gateways:
+    - key: !secret xiaomi_gateway_key
+
+# Mikrotik
+device_tracker:
+  - platform: mikrotik
+    host: 192.168.88.1
+    username: !secret mikrotik_user
+    password: !secret mikrotik_pass
+
+weather:
+  - platform: yweather
+    name: pogoda_warszawa
+
+# weather DarkSky
+# weather:
+#   - platform: darksky
+#     api_key: ee796a597424887cf180b14947d57a18
+#     name: pogoda_warszawa
+
+# Mosquitto
+mqtt:
+  broker: 192.168.88.60
+  port: 1883
+  client_id: home-assistant-1
+  keepalive: 60
+  username: !secret mqtt_user
+  password: !secret mqtt_pass
+  protocol: 3.1
+  birth_message:
+    topic: "tele/hassbian/LWT"
+    payload: "Online"
+    qos: 1
+    retain: true
+  will_message:
+    topic: "tele/hassbian/LWT"
+    payload: "Offline"
+    qos: 1
+    retain: true
+
+light Cave Main:
+  - platform: mqtt
+    name: "Cave Main Lamp"
+    state_topic: "stat/sonoff-A3C6C2/POWER"
+    command_topic: "cmnd/sonoff-A3C6C2/POWER"
+    availability_topic: "tele/sonoff-A3C6C2/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Aktywny"
+    payload_not_available: "Nieaktywny"
+    retain: true
+
+# Milight
+light Kitchen:
+  - platform: mqtt_json
+    name: "Front Lamp"
+    state_topic: 'milight/states/0x44D/rgb_cct/0'
+    command_topic: 'milight/commands/0x44D/rgb_cct/0'
+    brightness: true
+    rgb: true
+    color_temp: true
+    effect: true
+    effect_list: [ 0, 1, 2, 3, 4, 5, 6, 7, 8]
+    optimistic: false
+    qos: 0
+    xy: false
+    retain: true
+  - platform: mqtt_json
+    name: "Front Left Lamp"
+    state_topic: 'milight/states/0x44D/rgb_cct/1'
+    command_topic: 'milight/commands/0x44D/rgb_cct/1'
+    brightness: true
+    rgb: true
+    color_temp: true
+    effect: true
+    effect_list: [ 0, 1, 2, 3, 4, 5, 6, 7, 8]
+    optimistic: false
+    qos: 0
+    xy: false
+    retain: true
+  - platform: mqtt_json
+    name: "Front Right Lamp"
+    state_topic: 'milight/states/0x44D/rgb_cct/2'
+    command_topic: 'milight/commands/0x44D/rgb_cct/2'
+    brightness: true
+    rgb: true
+    color_temp: true
+    effect: true
+    effect_list: [ 0, 1, 2, 3, 4, 5, 6, 7, 8]
+    optimistic: false
+    qos: 0
+    xy: false
+    retain: true
+
+light Arc:
+  - platform: mqtt_json
+    name: "Arc Lamp"
+    state_topic: 'milight/states/0x4B1/fut089/0'
+    command_topic: 'milight/commands/0x4B1/fut089/0'
+    brightness: true
+    rgb: true
+    color_temp: true
+    effect: true
+    effect_list: [ 0, 1, 2, 3, 4, 5, 6, 7, 8]
+    optimistic: false
+    qos: 0
+    xy: false
+    retain: true
+
+light Cave Extra:
+  - platform: mqtt_json
+    name: "Cave Extra Lamp"
+    state_topic: 'milight/states/0x440/rgb_cct/1'
+    command_topic: 'milight/commands/0x440/rgb_cct/1'
+    brightness: true
+    rgb: true
+    color_temp: true
+    effect: true
+    effect_list: [ 0, 1, 2, 3, 4, 5, 6, 7, 8]
+    optimistic: false
+    qos: 0
+    xy: false
+    retain: true
+
+# Notification
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chatID_Grzegorz
+
+# Google Assistant via Home Assistant Cloud
+cloud:
+  google_actions:
+    filter:
+      include_entities:
+        - light.front_lamp
+        - light.yeelight_rgb_7811dc6ab618
+      include_domains:
+        - switch
+      exclude_entities:
+        - switch.outside
+    # entity_config:
+    #   switch.kitchen:
+    #     name: Custom Name for Google Assistant
+    #     aliases:
+    #      - bright lights
+    #      - entry lights
+    #     room: living room
+
+# CPU speed
+# sensor:
+#   - platform: cpuspeed
+
+# logger:
+#   default: warning
+#   logs:
+#     homeassistant.components.mqtt: debug
+
+############
+# Includes
+############
+
+# Single Files
+
+#light: !include includes/light.yaml

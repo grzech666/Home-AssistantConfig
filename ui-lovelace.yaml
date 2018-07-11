@@ -1,0 +1,74 @@
+title: KotoPsi Domek
+views:
+  - title: Dom
+    theme: dark-mode
+    
+    cards:
+
+    - type: glance
+      title: Kto w domu?
+      entities:          
+        - device_tracker.android13925b448a25b425
+        - device_tracker.redminote2redmi
+
+    - type: vertical-stack
+      cards:      
+      - type: glance
+        title: Na zewnątrz
+        entities:          
+          - sensor.balcony_temperature
+          - sensor.balcony_humidity
+          - sensor.balcony_pressure
+          - sensor.yr_symbol
+
+      - type: glance
+        title: Salon
+        entities:
+          - sensor.livingroom_temperature
+          - sensor.livingroom_humidity
+
+      - type: weather-forecast
+        entity: weather.pogoda_warszawa
+      
+    - type: vertical-stack
+      cards:
+      - type: entity-filter
+        entities:
+          - light.arc_lamp
+          - light.yeelight_rgb_7811dc6ab618                    
+          - light.front_lamp
+          - light.xiaomigatewaylamp
+          - light.yeelight_rgb_7811dc6a8170
+          - light.yeelight_rgb_7811dc6a8178
+          - light.cave_main_lamp
+          - light.cave_extra_lamp
+        state_filter:
+          - 'on'
+        card:
+          title: Oświetlenie
+      - type: entity-filter
+        entities:
+          - light.arc_lamp
+          - light.yeelight_rgb_7811dc6ab618                              
+          - light.front_lamp
+          - light.xiaomigatewaylamp
+          - light.yeelight_rgb_7811dc6a8170
+          - light.yeelight_rgb_7811dc6a8178
+          - light.cave_main_lamp
+          - light.cave_extra_lamp
+        state_filter:
+          - 'off'
+        
+    - type: entities
+      title: Czujniki
+      entities:                  
+        - binary_sensor.water_leak_kitchen_capboard_158d00021508f3
+        - binary_sensor.water_leak_bathroom_sink_158d0002130748
+        - binary_sensor.water_leak_bath_158d00021508f3
+        - binary_sensor.water_leak_toilet_158d0002130478
+
+    - type: entities
+      title: Baterie
+      entities: 
+        - binary_sensor.water_leak_bath_158d00021508f3.battery_level
+          

@@ -1,0 +1,130 @@
+sensor.balcony_temperature:
+  config_entry_id:
+  name: Temperature Balcony
+  platform: xiaomi_aqara
+  unique_id: temperature158d000227387c
+sensor.balcony_pressure:
+  config_entry_id:
+  name: Presure Balcony
+  platform: xiaomi_aqara
+  unique_id: pressure158d000227387c
+sensor.XiaomiGatewayIlumination:
+  config_entry_id:
+  name: XiaomiGatewayIlumination
+  platform: xiaomi_aqara
+  unique_id: illumination34ce00923e70
+sensor.livingroom_humidity:
+  config_entry_id:
+  name: Humidity LivingRoom
+  platform: xiaomi_aqara
+  unique_id: humidity158d00020ed8cc
+sensor.balcony_humidity:
+  config_entry_id:
+  name: Humidity Balcony
+  platform: xiaomi_aqara
+  unique_id: humidity158d000227387c
+sensor.livingroom_temperature:
+  config_entry_id:
+  name: Tempearture LivingRoom
+  platform: xiaomi_aqara
+  unique_id: temperature158d00020ed8cc
+binary_sensor.cave_bedside_lamp_switch:
+  config_entry_id:
+  name: BedsideLampSwitch
+  platform: xiaomi_aqara
+  unique_id: status158d0001e7d643
+binary_sensor.BeautyLampSwitch:
+  config_entry_id:
+  name: BeautyLampSwitch
+  platform: xiaomi_aqara
+  unique_id: status158d0002132cf0
+binary_sensor.CaveMainLampDoubleSwitch:
+  config_entry_id:
+  name: CaveMainLampDoubleSwitch
+  platform: xiaomi_aqara
+  unique_id: channel_0158d000170efe8
+binary_sensor.CaveExtraLampDoubleSwitch:
+  config_entry_id:
+  name: CaveExtraLampDoubleSwitch
+  platform: xiaomi_aqara
+  unique_id: channel_1158d000170efe8
+binary_sensor.SpareSwitch:
+  config_entry_id:
+  name: SpareSwitch
+  platform: xiaomi_aqara
+  unique_id: status158d0002241a4b
+binary_sensor.RingtoneSwitch:
+  config_entry_id:
+  name: RingtoneSwitch
+  platform: xiaomi_aqara
+  unique_id: channel_0158d00015efdbc
+binary_sensor.FrontLampSwitch:
+  config_entry_id:
+  name: FrontLampSwitch
+  platform: xiaomi_aqara
+  unique_id: channel_0158d00015f248b
+binary_sensor.BedroomLampSwitch:
+  config_entry_id:
+  name: BedroomLampSwitch
+  platform: xiaomi_aqara
+  unique_id: channel_0158d00013e7c97
+binary_sensor.BedsideLampDoubleSwitch:
+  config_entry_id:
+  name: BedsideLampDoubleSwitch
+  platform: xiaomi_aqara
+  unique_id: dual_channel158d000170efe8
+binary_sensor.water_leak_kitchen_capboard_158d00021508f3:
+  config_entry_id:
+  name: Kitchen Cupboard Leak
+  platform: xiaomi_aqara
+  unique_id: status158d000211b290
+light.XiaomiGatewayLamp:
+  config_entry_id:
+  name: XiaomiGatewayLamp
+  platform: xiaomi_aqara
+  unique_id: rgb34ce00923e70
+media_player.Chromecast:
+  config_entry_id: 4541bbd6a25041549dc9080d2ca47868
+  name: Chromecast
+  platform: cast
+  unique_id: 9e3c69f8-a16e-6518-1239-d778ddb09e0c
+media_player.LivingRoomSpeaker:
+  config_entry_id: 4541bbd6a25041549dc9080d2ca47868
+  name: LivingRoomSpeaker
+  platform: cast
+  unique_id: 89a9f971-9f56-dc8f-7740-527a93256230
+media_player.HomeGroupSpeaker:
+  config_entry_id: 4541bbd6a25041549dc9080d2ca47868
+  name: HomeGroupSpeaker
+  platform: cast
+  unique_id: 53d49d6d-2fe2-4c41-bbd0-f9ec17cf09d8
+media_player.BedroomSpeaker:
+  config_entry_id: 4541bbd6a25041549dc9080d2ca47868
+  name: BedroomSpeaker
+  platform: cast
+  unique_id: b30bffa0-4aee-221c-8a77-0f74245a6258
+media_player.CaveSpeaker:
+  config_entry_id: 4541bbd6a25041549dc9080d2ca47868
+  name: CaveSpeaker
+  platform: cast
+  unique_id: eda56dbf-09b4-2ccf-2d73-7c584ad2a0b9
+binary_sensor.water_leak_bath_158d00021508f3:
+  config_entry_id:
+  name: Bath Leak
+  platform: xiaomi_aqara
+  unique_id: status158d00021508f3
+binary_sensor.water_leak_bathroom_sink_158d0002130748:
+  config_entry_id:
+  name: Bathroom Sink Leak
+  platform: xiaomi_aqara
+  unique_id: status158d0002130748
+binary_sensor.water_leak_toilet_158d0002130478:
+  config_entry_id:
+  name: Toilet
+  platform: xiaomi_aqara
+  unique_id: status158d0002130478
+media_player.googlehome7392:
+  config_entry_id: 4541bbd6a25041549dc9080d2ca47868
+  name:
+  platform: cast
+  unique_id: 02c8352d-caf8-4ae1-4c1b-1b0159894719

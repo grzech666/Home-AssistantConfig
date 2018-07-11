@@ -1,0 +1,171 @@
+- alias: Single Click to toggle Beauty Lamp
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.BeautyLampSwitch
+      click_type: single
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.yeelight_rgb_7811dc6ab618
+
+- alias: Single Click to toggle Bedroom Lamp
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.BedroomLampSwitch
+      click_type: single
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.yeelight_rgb_7811dc6a8178
+
+- alias: Single Click to toggle Kitchen Front Lamp
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.FrontLampSwitch
+      click_type: single
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.front_lamp
+
+- alias: Left Click to toggle Cave Main Lamp
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.CaveMainLampDoubleSwitch
+      click_type: single
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.cave_main_lamp
+
+- alias: Right Click to toggle Cave Extra Lamp
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.CaveExtraLampDoubleSwitch
+      click_type: single
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.cave_extra_lamp
+    
+- alias: Both Click to toggle Bedside Lamp
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.BedsideLampDoubleSwitch
+      click_type: both
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.yeelight_rgb_7811dc6a8170
+
+- alias: Single Click to toggle Cave Bedside Lamp
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.cave_bedside_lamp_switch
+      click_type: single
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.yeelight_rgb_7811dc6a8170
+
+- alias: Double Click to toggle Cave Main Lamp
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.cave_bedside_lamp_switch
+      click_type: double
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.cave_main_lamp
+
+# - alias: Long Click Press to toggle Cave Extra Lamp
+#   trigger:
+#     platform: event
+#     event_type: click
+#     event_data:
+#       entity_id: binary_sensor.cave_bedside_lamp_switch
+#       click_type: long_click_press
+#   action:
+#     service: light.toggle
+#     data:
+#       entity_id: light.cave_extra_lamp
+      
+- alias: Water Alert Bath
+  trigger:
+  - entity_id: binary_sensor.water_leak_bath_158d00021508f3
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+    service: telegram_bot.send_message
+    data:
+      title: Water Alert
+      message: Water leak detected near bath
+
+- alias: Water Alert Bathroom Sink
+  trigger:
+  - entity_id: binary_sensor.water_leak_bathroom_sink_158d0002130748
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+    service: telegram_bot.send_message
+    data:
+      title: Water Alert
+      message: Water leak detected near Bathroom Sink
+
+- alias: Water Alert Kitchen Capboard
+  trigger:
+  - entity_id: binary_sensor.water_leak_kitchen_capboard_158d00021508f3
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+    service: telegram_bot.send_message
+    data:
+      title: Water Alert
+      message: Water leak detected near kitchen capboard
+
+- alias: Water Alert Toilet
+  trigger:
+  - entity_id: binary_sensor.water_leak_toilet_158d0002130478
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+    service: telegram_bot.send_message
+    data:
+      title: Water Alert
+      message: Water leak detected in the Toilet
+
+- alias: Single click to play ringtone 
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.RingtoneSwitch
+      click_type: single
+  action:
+    service: xiaomi_aqara.play_ringtone
+    data:
+      gw_mac: 34CE00923E70
+      ringtone_id: 10
+      ringtone_vol: 8
+
+      
